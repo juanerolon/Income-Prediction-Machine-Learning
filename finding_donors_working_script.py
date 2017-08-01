@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 from time import time
 
-import matplotlib.pyplot as pl
+import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
 
 from sklearn.metrics import accuracy_score
@@ -254,7 +254,7 @@ def train_predict(learner, sample_size, X_train, y_train, X_test, y_test):
     results['f_test'] = fbeta_score(y_test, predictions_test, beta=0.5)
 
     # Success
-    print "{} trained on {} samples.".format(learner.__class__.__name__, sample_size)
+    #print "{} trained on {} samples.".format(learner.__class__.__name__, sample_size)
 
     #Modification
 
@@ -263,6 +263,12 @@ def train_predict(learner, sample_size, X_train, y_train, X_test, y_test):
 
     # Return the results
     return results
+
+
+    # train_predict return value format: it returns a dictionary
+    # {'samp_size': 36177, 'clf_name': 'GaussianNB', 'pred_time': 0.037,
+    # 'f_test': 0.42, 'train_time': 0.038, 'acc_train': 0.59,
+    # 'acc_test': 0.59, 'f_train': 0.42}
 
 
 """
@@ -318,17 +324,39 @@ if True:
     svc =  SVC(random_state=60)
     lreg = LogisticRegression(random_state=50)
 
-    clflist = [gnb, dt, bags,bdt, rfc,gdb,knn,stgd,lsvc, svc,lreg]
+    clf_list = [gnb, dt, bags,bdt, rfc,gdb,knn,stgd,lsvc, svc,lreg]
+
+    clfl_short = [gnb,lsvc]
+
+    clf_lscores =[]
+    clf_lnames = []
+
+    for i in range(len(clfl_short)):
+        clf_results = train_predict(clfl_short[i], len(y_train), X_train, y_train, X_test, y_test)
+        clf_lscores.append(clf_results['f_test'])
+        clf_lnames.append(clf_results['clf_name'])
 
 
 
-    gnb = GaussianNB()
-    svc = SVC(random_state=60)
-    print train_predict(gnb, len(y_train), X_train, y_train, X_test, y_test)
-    print train_predict(svc, len(y_train), X_train, y_train, X_test, y_test)
+    n_groups = len(clf_lscores)
+    impdata = clf_lscores
+    fig, ax = plt.subplots()
+    index = np.arange(n_groups)
+    bar_width = 0.35
+    opacity = 0.4
+    rects1 = plt.bar(index, impdata, bar_width, alpha=opacity, color='b')
 
-    #train_predict return value format: it returns a dictionary
-    #{'samp_size': 36177, 'clf_name': 'GaussianNB', 'pred_time': 0.037, 'f_test': 0.42, 'train_time': 0.038, 'acc_train': 0.59, 'acc_test': 0.59, 'f_train': 0.42}
+    plt.xlabel('Classifier')
+    plt.ylabel('F-Score Test ')
+    plt.title('Classifier F-Score on Test Data Set')
+    plt.xticks(index, clf_lnames)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+
+
+
+
 
 
 
@@ -338,11 +366,16 @@ if True:
 if False:
     n_groups = len(reg.feature_importances_)
     impdata = reg.feature_importances_
+
+
     fig, ax = plt.subplots()
+
     index = np.arange(n_groups)
+
     bar_width = 0.35
     opacity = 0.4
     rects1 = plt.bar(index, impdata, bar_width, alpha=opacity, color='b', label='Feature Importance')
+
     plt.xlabel('Features')
     plt.ylabel('Gini Importance')
     plt.title('Feature Importance for Home Price Forecasting in Boston in 1978')
@@ -434,14 +467,14 @@ Store those values in 'samples_1', 'samples_10', and 'samples_100' respectively.
 Note: Depending on which algorithms you chose, the following implementation may take some time to run!
 """
 
-print ""
-print "------------------------------ Pipeline Implementation ---------------------------------\n"
-print ""
-print "Length of y_train = {}".format(len(y_train))
+
 
 if False:
 
-    # --------------------------------- Pipeline ---------------------------------
+    print ""
+    print "------------------------------ Pipeline Implementation ---------------------------------\n"
+    print ""
+    print "Length of y_train = {}".format(len(y_train))
 
     print "------------*****----------Pipeline Test ----------*******-----------------------"
 
