@@ -309,6 +309,7 @@ if False:
     print train_predict(lreg, len(y_train), X_train, y_train, X_test, y_test)
 
 
+#------------------------------------------------   Aug 1 2017 --------------------------------------------------------
 
 if True:
 
@@ -326,33 +327,73 @@ if True:
 
     clf_list = [gnb, dt, bags,bdt, rfc,gdb,knn,stgd,lsvc, svc,lreg]
 
-    clfl_short = [gnb,lsvc]
+    clfl_short = [gnb,dt,rfc,lsvc]
 
     clf_lscores =[]
+
+    clf_ltrain_times =[]
+
+
     clf_lnames = []
 
     for i in range(len(clfl_short)):
         clf_results = train_predict(clfl_short[i], len(y_train), X_train, y_train, X_test, y_test)
         clf_lscores.append(clf_results['f_test'])
+        clf_ltrain_times.append(clf_results['train_time'])
         clf_lnames.append(clf_results['clf_name'])
 
+    if False:
+
+        n_groups = len(clf_lscores)
+        impdata = clf_lscores
+        fig, ax = plt.subplots()
+        index = np.arange(n_groups)
+        bar_width = 0.35
+        opacity = 0.4
+        rects1 = plt.bar(index, impdata, bar_width, alpha=opacity, color='b')
+
+        plt.xlabel('Classifier')
+        plt.ylabel('F-Score Test ')
+        plt.title('Classifier F-Score on Test Data Set')
+        plt.xticks(index, clf_lnames)
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
+
+    if True:
+
+        plt.figure(1, figsize=(15, 5))
+
+        n_groups = len(clf_lscores)
+        index = np.arange(n_groups)
+        bar_width = 0.35
+        opacity = 0.4
+
+        impdata1 = clf_lscores
+        impdata2 = clf_ltrain_times
+
+        plt.subplot(1,2,1)
+
+        plt.xlabel('Classifier')
+        plt.ylabel('F-Score Test ')
+        plt.title('Classifier F-Score on Test Data Set')
+        plt.xticks(index, clf_lnames)
+        plt.bar(index, impdata1, bar_width, alpha=opacity, color='b')
+        plt.legend()
+
+        plt.subplot(1, 2, 2)
+
+        plt.xlabel('Classifier')
+        plt.ylabel('Train Times ')
+        plt.title('Classifier Training Data Set Times')
+        plt.xticks(index, clf_lnames)
+        plt.bar(index, impdata2, bar_width, alpha=opacity, color='b')
+        plt.legend()
+
+        plt.tight_layout()
+        plt.show()
 
 
-    n_groups = len(clf_lscores)
-    impdata = clf_lscores
-    fig, ax = plt.subplots()
-    index = np.arange(n_groups)
-    bar_width = 0.35
-    opacity = 0.4
-    rects1 = plt.bar(index, impdata, bar_width, alpha=opacity, color='b')
-
-    plt.xlabel('Classifier')
-    plt.ylabel('F-Score Test ')
-    plt.title('Classifier F-Score on Test Data Set')
-    plt.xticks(index, clf_lnames)
-    plt.legend()
-    plt.tight_layout()
-    plt.show()
 
 
 
