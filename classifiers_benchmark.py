@@ -37,7 +37,6 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.linear_model import LogisticRegression
 
 
-
 # Load the Census dataset
 data = pd.read_csv("census.csv")
 
@@ -96,8 +95,7 @@ lsvc = LinearSVC(random_state=80)
 svc = SVC(random_state=60)
 lreg = LogisticRegression(random_state=50)
 
-clf_list = [gnb, dt, bags, bdt, rfc, gdb, knn, stgd, lsvc, svc, lreg]
-clfl_short = [gnb, dt, rfc, lsvc]
+clf_list = [[gnb, dt, rfc, lsvc], [knn, stgd, lreg, bags], [bdt, gdb, svc]]
 
 #Create lists to store selected benchmarking results
 clf_lscores = []
@@ -106,42 +104,54 @@ clf_lnames = []
 
 #Train all classifiers on training data and make predictions on test data
 #Store desired benchmarking results
+for j in range(len(clf_list)):
+    temp_scores = []
+    temp_times = []
+    temp_names = []
+    for i in range(len(clf_list[j])):
+        clf_results = train_predict(clf_list[j][i], len(y_train), X_train, y_train, X_test, y_test)
+        temp_scores.append(clf_results['f_test'])
+        temp_times.append(clf_results['train_time'])
+        temp_names.append(clf_results['clf_name'].replace('Classifier', ''))
+    clf_lscores.append(temp_scores)
+    clf_ltrain_times.append(temp_times)
+    clf_lnames.append(temp_names)
 
-for i in range(len(clfl_short)):
-    clf_results = train_predict(clfl_short[i], len(y_train), X_train, y_train, X_test, y_test)
-    clf_lscores.append(clf_results['f_test'])
-    clf_ltrain_times.append(clf_results['train_time'])
-    clf_lnames.append(clf_results['clf_name'])
+print clf_lnames
+print clf_lscores
+print clf_ltrain_times
 
-#Generate barchart plots using selected benchmarking results
+#Generate bar chart plots using selected benchmarking results
 
 plt.figure(1, figsize=(15, 5))
 
-n_groups = len(clf_lscores)
-index = np.arange(n_groups)
-bar_width = 0.35
-opacity = 0.4
+for j in range(len(clf_lscores)):
 
-impdata1 = clf_lscores
-impdata2 = clf_ltrain_times
+    n_groups = len(clf_lscores[j])
+    index = np.arange(n_groups)
+    bar_width = 0.35
+    opacity = 0.4
 
-plt.subplot(1, 2, 1)
+    impdata1 = clf_lscores[j]
+    impdata2 = clf_ltrain_times[j]
 
-plt.xlabel('Classifier')
-plt.ylabel('F-Score Test ')
-plt.title('Classifier F-Score on Test Data Set')
-plt.xticks(index, clf_lnames)
-plt.bar(index, impdata1, bar_width, alpha=opacity, color='b')
-plt.legend()
+    plt.subplot(2, 3, j+1)
 
-plt.subplot(1, 2, 2)
+    plt.xlabel('Classifier')
+    plt.ylabel('F-Score Test ')
+    plt.title('Classifier F-Score on Test Data Set')
+    plt.xticks(index, clf_lnames[j])
+    plt.bar(index, impdata1, bar_width, alpha=opacity, color='k')
+    plt.legend()
 
-plt.xlabel('Classifier')
-plt.ylabel('Train Times ')
-plt.title('Classifier Training Data Set Times')
-plt.xticks(index, clf_lnames)
-plt.bar(index, impdata2, bar_width, alpha=opacity, color='b')
-plt.legend()
+    plt.subplot(2, 3, j+4)
+
+    plt.xlabel('Classifier')
+    plt.ylabel('Train Times ')
+    plt.title('Classifier Training Data Set Times')
+    plt.xticks(index, clf_lnames[j])
+    plt.bar(index, impdata2, bar_width, alpha=opacity, color='g')
+    plt.legend()
 
 plt.tight_layout()
 plt.show()
