@@ -193,9 +193,6 @@ if False:
 # TODO: Import two metrics from sklearn - fbeta_score and accuracy_score (DONE!)
 
 from sklearn.naive_bayes import GaussianNB
-from sklearn import linear_model
-from sklearn.metrics import fbeta_score
-from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.svm import LinearSVC
