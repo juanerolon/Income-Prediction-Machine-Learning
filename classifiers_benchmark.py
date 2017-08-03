@@ -141,8 +141,12 @@ for j in range(len(clf_lscores)):
     plt.ylabel('F-Score Test ')
     plt.title('Classifier F-Score on Test Data Set')
     plt.xticks(index, clf_lnames[j])
-    plt.bar(index, impdata1, bar_width, alpha=opacity, color='k')
-    plt.legend()
+    
+    bar1 = plt.bar(index, impdata1, bar_width, alpha=opacity, color='k')
+    for rect in bar1:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width()/2.0, height, '%f' % height, ha='center', va='top',color='b')
+    
 
     plt.subplot(2, 3, j+4)
 
@@ -150,8 +154,12 @@ for j in range(len(clf_lscores)):
     plt.ylabel('Train Times ')
     plt.title('Classifier Training Data Set Times')
     plt.xticks(index, clf_lnames[j])
-    plt.bar(index, impdata2, bar_width, alpha=opacity, color='g')
-    plt.legend()
+    
+    bar2 = plt.bar(index, impdata2, bar_width, alpha=opacity, color='g')
+    for rect in bar2:
+        height = rect.get_height()
+        plt.text(rect.get_x() + rect.get_width()/2.0, height, '%f' % height, ha='center', va='top',color='b')
+    
 
 plt.tight_layout()
 plt.show()
