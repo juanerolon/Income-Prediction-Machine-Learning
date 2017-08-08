@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d7177853-cdbc-4cfc-badd-429cfbfc0588" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.ipynb_checkpoints/finding_donors-checkpoint.ipynb" afterPath="$PROJECT_DIR$/.ipynb_checkpoints/finding_donors-checkpoint.ipynb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/classifiers_benchmark.py" afterPath="$PROJECT_DIR$/classifiers_benchmark.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finding_donors.ipynb" afterPath="$PROJECT_DIR$/finding_donors.ipynb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/finding_donors_working_script.py" afterPath="$PROJECT_DIR$/finding_donors_working_script.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,8 +14,8 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="CoverageDataManager">
-    <SUITE FILE_PATH="coverage/finding_donors$classifiers_benchmark.coverage" NAME="classifiers_benchmark Coverage Results" MODIFIED="1501776961111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/finding_donors$finding_donors_working_script.coverage" NAME="finding_donors_working_script Coverage Results" MODIFIED="1501640120151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/finding_donors$classifiers_benchmark.coverage" NAME="classifiers_benchmark Coverage Results" MODIFIED="1502155475202" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/finding_donors$finding_donors_working_script.coverage" NAME="finding_donors_working_script Coverage Results" MODIFIED="1502156166834" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -33,11 +33,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="finding_donors_working_script.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="finding_donors_working_script.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/finding_donors_working_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-901">
-              <caret line="169" column="41" lean-forward="true" selection-start-line="169" selection-start-column="41" selection-end-line="169" selection-end-column="41" />
+            <state relative-caret-position="315">
+              <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
               <folding>
                 <element signature="e#61#79#0" expanded="true" />
               </folding>
@@ -57,12 +57,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="classifiers_benchmark.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="classifiers_benchmark.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classifiers_benchmark.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="31" />
-              <folding />
+            <state relative-caret-position="390">
+              <caret line="125" column="2" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="30" />
+              <folding>
+                <element signature="e#498#516#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,9 +84,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/finding_donors_working_script.py" />
         <option value="$PROJECT_DIR$/trainPredict.py" />
         <option value="$PROJECT_DIR$/classifiers_benchmark.py" />
+        <option value="$PROJECT_DIR$/finding_donors_working_script.py" />
       </list>
     </option>
   </component>
@@ -95,8 +97,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2011" />
-    <option name="y" value="26" />
+    <option name="x" value="236" />
+    <option name="y" value="116" />
     <option name="width" value="1512" />
     <option name="height" value="1016" />
   </component>
@@ -147,7 +149,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.classifiers_benchmark">
+  <component name="RunManager" selected="Python.finding_donors_working_script">
     <configuration name="classifiers_benchmark" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -190,8 +192,8 @@
     </list>
     <recent_temporary>
       <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="Python.classifiers_benchmark" />
-        <item index="1" class="java.lang.String" itemvalue="Python.finding_donors_working_script" />
+        <item index="0" class="java.lang.String" itemvalue="Python.finding_donors_working_script" />
+        <item index="1" class="java.lang.String" itemvalue="Python.classifiers_benchmark" />
       </list>
     </recent_temporary>
   </component>
@@ -233,12 +235,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2011" y="26" width="1512" height="1016" extended-state="0" />
-    <editor active="true" />
+    <frame x="236" y="116" width="1512" height="1016" extended-state="0" />
     <layout>
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17415115" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34063527" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -273,16 +274,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/finding_donors_working_script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-901">
-          <caret line="169" column="41" lean-forward="true" selection-start-line="169" selection-start-column="41" selection-end-line="169" selection-end-column="41" />
-          <folding>
-            <element signature="e#61#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/trainPredict.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="810">
@@ -295,9 +286,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/classifiers_benchmark.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="3" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="31" />
-          <folding />
+        <state relative-caret-position="390">
+          <caret line="125" column="2" lean-forward="true" selection-start-line="125" selection-start-column="0" selection-end-line="125" selection-end-column="30" />
+          <folding>
+            <element signature="e#498#516#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/finding_donors_working_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="87" column="8" lean-forward="false" selection-start-line="87" selection-start-column="8" selection-end-line="87" selection-end-column="8" />
+          <folding>
+            <element signature="e#61#79#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

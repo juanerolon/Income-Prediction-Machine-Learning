@@ -80,10 +80,29 @@ numerical = ['age', 'education-num', 'capital-gain', 'capital-loss', 'hours-per-
 features_log_minmax_transform = pd.DataFrame(data = features_log_transformed)
 features_log_minmax_transform[numerical] = scaler.fit_transform(features_log_transformed[numerical])
 
+print "Print some data after MinMaxScaling:\n"
+
 # Show an example of a record with scaling applied
 print features_log_minmax_transform.head(n = 5)
 
-print "..............One hot encoding ........\n"
+if False:
+
+    print "Print some capital loss data:\n"
+
+
+    capital_loss_data = features_log_minmax_transform['capital-loss']
+    print capital_loss_data.head(n = 5)
+
+    print "Looking for non-zero values of capital loss:\n"
+
+    for d in range(len(capital_loss_data)):
+        if capital_loss_data[d] > 0.0:
+
+            print "Index = {},  capital_loss = {}".format(d,capital_loss_data[d])
+
+
+
+print "..............Print some info after One hot encoding ........\n"
 
 # TODO: One-hot encode the 'features_log_minmax_transform' data using pandas.get_dummies()
 features_final =  pd.get_dummies(features_log_minmax_transform)
@@ -308,7 +327,7 @@ if False:
 
 #------------------------------------------------   Aug 1 2017 --------------------------------------------------------
 
-if True:
+if False:
 
     gnb = GaussianNB()
     dt = DecisionTreeClassifier(random_state=0)
@@ -357,7 +376,7 @@ if True:
         plt.tight_layout()
         plt.show()
 
-    if True:
+    if False:
 
         plt.figure(1, figsize=(15, 5))
 
