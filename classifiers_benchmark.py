@@ -59,7 +59,7 @@ numerical = ['age', 'education-num', 'capital-gain', 'capital-loss', 'hours-per-
 features_log_minmax_transform = pd.DataFrame(data = features_log_transformed)
 features_log_minmax_transform[numerical] = scaler.fit_transform(features_log_transformed[numerical])
 
-features_final =  pd.get_dummies(features_log_minmax_transform)
+features_final = pd.get_dummies(features_log_minmax_transform)
 
 # Encode the 'income_raw' data to numerical values
 def nEnc(x):
@@ -123,7 +123,7 @@ print clf_ltrain_times
 
 #Generate bar chart plots using selected benchmarking results
 
-plt.figure(1, figsize=(15, 5))
+advant
 
 for j in range(len(clf_lscores)):
 
