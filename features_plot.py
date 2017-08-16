@@ -73,15 +73,16 @@ plt.legend(frameon=False, loc='upper right', fontsize='small')
 
 cap_gain_groups = ['0-10K', '10-20K', '20-30K', '30-40K', '40-50K', '50-60K', '60-70K', '70-80K', '80-90K', '90-100K']
 cap_loss_groups = ['0-500', '500-1K', '1-1.5K', '1.5-2K', '2-2.5K', '2.5-3K', '3-3.5K', '3.5-4K','4-4.5K', '4.5-5K']
-gr_set = [cap_gain_groups, cap_loss_groups]
-cap_feat = ['capital-gain', 'capital-loss']
+weekly_hours = ['0-10h', '10-20h', '20-30h', '30-40h', '40-50h', '50-60h', '60-70h', '70-80h','80-90h', '90-99h']
+gr_set = [cap_gain_groups, cap_loss_groups, weekly_hours]
+cap_feat = ['capital-gain', 'capital-loss', 'hours-per-week']
 
 for m, feat in enumerate(cap_feat):
     n_groups_cap = len(gr_set[m])
     less_than_50 = [0] * n_groups_cap
     more_than_50 = [0] * n_groups_cap
     d_cap = 0
-    steps = [10000, 500]
+    steps = [10000, 500,10]
     offset = 0
     for agn in range(len(gr_set[m])):
         if agn == len(gr_set[m]) - 1: offset = 100
@@ -101,13 +102,14 @@ for m, feat in enumerate(cap_feat):
     rects2 = plt.bar(index + bar_width, more_than_50, bar_width, alpha=opacity, color='g', label='>50K')
     plt.title('Income by {}'.format(feat))
     plt.ylabel('No. Records')
-    plt.ylim((0, 2000))
+    if feat in ['capital-gain', 'capital-loss']:
+        plt.ylim((0, 2000))
     plt.xticks(index + bar_width / 2.0, gr_set[m], rotation='vertical')
     plt.legend(frameon=False, loc='upper right', fontsize='small')
     plot_num += 1
 
 plt.tight_layout()
+plt.savefig('feat_selection.pdf')
 plt.show()
-
 
 
