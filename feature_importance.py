@@ -10,6 +10,7 @@ from sklearn.metrics import accuracy_score
 
 from sklearn.ensemble import GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
 
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import make_scorer
@@ -26,6 +27,8 @@ income_raw = data['income']
 income_raw = data['income']
 
 
+#----------------------------------- Full set of features -----------------------------------------------
+
 features_raw = data.drop('income', axis = 1)
 print "Full features results"
 print "Number of raw features: {}".format(len(list(features_raw.columns)))
@@ -40,8 +43,14 @@ features_log_minmax_transform[numerical] = scaler.fit_transform(features_log_tra
 features_final = pd.get_dummies(features_log_minmax_transform)
 income = income_raw.apply(nEnc)
 X_train, X_test, y_train, y_test = train_test_split(features_final,income,test_size = 0.2,random_state = 0)
-clf = GradientBoostingClassifier(n_estimators=10, random_state=30, max_depth=8)
-results =  train_predict(clf, len(y_train), X_train, y_train, X_test, y_test)
+
+#select classifier to train of full feature set
+
+#clf = GradientBoostingClassifier(n_estimators=10, random_state=30, max_depth=8)
+#results =  train_predict(clf, len(y_train), X_train, y_train, X_test, y_test)
+
+clf = GaussianNB()
+results = train_predict(clf, len(y_train), X_train, y_train, X_test, y_test)
 
 acc_trn0 = results['acc_train']
 acc_tst0 = results['acc_test']
@@ -53,6 +62,8 @@ print "Testing  accuracy: {}".format(results['acc_test'])
 print "Training f-score : {}".format(results['f_train'])
 print "Testing  f-score : {}".format(results['f_test'])
 
+
+#----------------------------------- Feature selection test -----------------------------------------------
 
 features = data.drop('income', axis = 1)
 feat_names = list(features.columns)
@@ -82,8 +93,17 @@ for feat in feat_names:
     income = income_raw.apply(nEnc)
     X_train, X_test, y_train, y_test = train_test_split(features_final,income,test_size = 0.2,random_state = 0)
 
+
+
+    #Naive Bayes
+    clf = GaussianNB()
+    results = train_predict(clf, len(y_train), X_train, y_train, X_test, y_test)
+
+    #Gradient Boosting
+    """
     clf = GradientBoostingClassifier(n_estimators=10, random_state=30, max_depth=8)
     results =  train_predict(clf, len(y_train), X_train, y_train, X_test, y_test)
+    """
 
     acc_trn = results['acc_train']
     acc_tst = results['acc_test']
@@ -96,10 +116,7 @@ for feat in feat_names:
     print "Testing  f-score : {}   Change: {}".format(fsc_tst, abs(fsc_tst0-fsc_tst))
 
 
-
-
-
-
+    # Optional Grid search after classifier selection
     if False:
 
         clf = GradientBoostingClassifier(n_estimators=10,random_state=30,max_depth=8)

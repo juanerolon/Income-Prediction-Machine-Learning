@@ -95,7 +95,8 @@ lsvc = LinearSVC(random_state=80)
 svc = SVC(random_state=60)
 lreg = LogisticRegression(random_state=50)
 
-clf_list = [[gnb, dt, rfc, lsvc], [knn, stgd, lreg, bags], [bdt, gdb, svc]]
+#clf_list = [[gnb, dt, rfc, lsvc], [knn, stgd, lreg, bags], [bdt, gdb, svc]]
+clf_list = [[gnb, lsvc, lreg]]
 
 #Create lists to store selected benchmarking results
 clf_lscores = []
