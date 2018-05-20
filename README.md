@@ -1,6 +1,6 @@
 # Income Prediction via Multimodel Supervised Learning Algorithms 
 
-## *Finding Donors for a Charity
+## Finding Donors for a Charity
 
 ### Juan E. Rolon, 2017
 
@@ -23,7 +23,7 @@ Understanding an individual's income can help a non-profit better understand how
 This project was submitted as part of the requisites required to obtain Machine Learning Engineer Nanodegree from Udacity.
 
 
-### Installation
+## Installation
 
 This project requires **Python 2.7** and the following Python libraries installed:
 
@@ -36,12 +36,12 @@ You will also need to have software installed to run and execute an [iPython Not
 
 We recommend installing [Anaconda](https://www.continuum.io/downloads), a pre-packaged Python distribution that contains all of the necessary libraries and software for this project. 
 
-### Code
+## Code
 
 The code is provided in the `finding_donors.ipynb` notebook file. You will also be required to use the included `visuals.py` Python file and the `census.csv` dataset file to complete your work.   
 
 
-### Running the Code
+## Running the Code
 
 In a terminal or command window, navigate to the top-level project directory `finding_donors/` (that contains this README) and run one of the following commands:
 
