@@ -1,3 +1,12 @@
+#Features Plot
+#Income Prediction Machine Learning
+#Juan E. Rolon, 2018
+#
+"""
+The present script generates a set of feature histograms and frequency distributions of the 
+their sub-features that appear most relevant for income prediction. The results are incorpo-
+rated to the main report of this project (see finding_donors.ipynb)
+"""
 
 import numpy as np
 import pandas as pd
