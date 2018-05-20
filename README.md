@@ -4,6 +4,10 @@
 
 ### Juan E. Rolon, 2017
 
+<img src="census.jpg"
+     alt="customer_segments"
+     style="float: left; margin-right: 10px; width: 250px;" />
+
 
 ## Project Overview
 
