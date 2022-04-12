@@ -2,7 +2,9 @@
 
 ## Finding Donors for a Charity
 
-### Juan E. Rolon, 2017
+#
+### Juan E. Rolon
+#
 
 <img src="census.jpg"
      alt="customer_segments"
